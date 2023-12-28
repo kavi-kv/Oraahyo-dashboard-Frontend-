@@ -6,8 +6,8 @@ import { QuotesContext } from "./Backend/Context/QuotesContext";
 import Dashboard from "./views/dashboard";
 import Quotes from "./views/quotes";
 import Layout from './views/layout/index'
-import Navbar from "./components/Navbar";
-import Sidebar, { SidebarItem } from "./components/Sidebar";
+import Navbar from "./compos/Navbar";
+import Sidebar, { SidebarItem } from "./compos/Sidebar";
 // import Sidebar from "./components/Sidebar";
 import { Box, useMediaQuery } from "@mui/material"
 

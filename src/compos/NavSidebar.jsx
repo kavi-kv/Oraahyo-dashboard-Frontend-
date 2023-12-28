@@ -32,6 +32,9 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import profileImage  from '../assets/profile.jpeg'
+// import userImage  from '../assets/kv.jpeg'
+import userImage  from '../assets/moha.jpeg'
+
 // const { Box } = require("@mui/material");
 
 
@@ -47,41 +50,10 @@ const navItems = [
       icon: <HomeOutlined/>,
     },
     {
-      text: "Operatios",
-      icon: null,
-    },
-    {
       text: "Quotes",
-      icon: <ShoppingCartOutlined/>,
-    },
-    {
-      text: "Authers",
       icon: <Groups2Outlined/>,
     },
-    // {
-    //   text: "Category",
-    //   icon: <ReceiptLongOutlined/>,
-    // },
-    // {
-    //   text: "Geography",
-    //   icon: <PublicOutlined/>,
-    // },
-    // {
-    //   text: "Sales",
-    //   icon: null,
-    // },
-    // {
-    //   text: "Overview",
-    //   icon: <PointOfSaleOutlined/>,
-    // },
-    // {
-    //   text: "Daily",
-    //   icon: <TodayOutlined/>,
-    // },
-    // {
-    //   text: "Monthly",
-    //   icon: <CalendarMonthOutlined/>,
-    // },
+
     
   ];
 
@@ -124,7 +96,7 @@ function NavSidebar({
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold" m="1rem 0 0 2.8rem">
-                    Oraahyo
+                    Dashboard
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -190,7 +162,7 @@ function NavSidebar({
               <Box
                 component="img"
                 alt="profile"
-                src={profileImage}
+                src={userImage}
                 height="40px"
                 width="40px"
                 borderRadius="50%"

@@ -18,7 +18,7 @@ function Navbar() {
                 <h6>⭕</h6>
             </IconButton>
             <Typography variant='6' component='div' color="black" fontSize="22px" sx={{ flexGrow: 1 }}>
-                Oraahyo 
+                {/* Oraahyo  */}
             </Typography>
             <Stack direction='row' spacing={ 2 } color="black">
                 <Button color='inherit'>Feature</Button>
