@@ -27,8 +27,9 @@ import {
   CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
-  PieChartOutlined,
+  PieChartOutlined,  
 } from "@mui/icons-material";
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import profileImage  from '../assets/profile.jpeg'
@@ -53,6 +54,10 @@ const navItems = [
       text: "Quotes",
       icon: <Groups2Outlined/>,
     },
+    // {
+    //   text: "Logout",
+    //   icon: <LogoutOutlinedIcon/>,
+    // },
 
     
   ];

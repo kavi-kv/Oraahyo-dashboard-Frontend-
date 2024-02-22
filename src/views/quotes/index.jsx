@@ -17,6 +17,19 @@ import CustomizedSnackbars from "../../compos/CustomisedSnackbar";
 import QuoteCard from "../../compos/quoteCard";
 import CircularProgress from "@mui/material/CircularProgress";
 
+import {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { useForm } from "react-hook-form";
+
 function Quotes() {
   const {
     quotes,
@@ -117,7 +130,7 @@ function Quotes() {
     SetQuoteCategory();
   }
 
-  console.log("Author in the search bar: ",searchByAuthor)
+  console.log("Author in the search bar: ", searchByAuthor);
 
   return (
     <Box m="6.5rem 16.5rem " p="0rem 6rem " width="85%">
@@ -167,6 +180,7 @@ function Quotes() {
                 value={searchByAuthor}
                 onChange={(e) => setSearchByAuthor(e.target.value)}
               />
+
               <Button
                 variant="contained"
                 sx={{ p: "14px", m: "4px" }}
@@ -192,6 +206,22 @@ function Quotes() {
               value={quoteAuther}
               onChange={(e) => setQuoteAuther(e.target.value)}
             />
+            {/* <Form >
+              <form>
+                <FormField
+                  
+                  name="Author Name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Author....</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Author's Name..."/>
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </form>
+            </Form> */}
             <br />
             <br />
             <QuotesCategories
@@ -224,7 +254,7 @@ function Quotes() {
               {(searchByAuthor ? quotesByAuthor : quotes).map(
                 (quote, index) => (
                   <div key={index}>
-                    {quotes  === null ? (
+                    {quotes === null ? (
                       <Box sx={{ display: "flex" }}>
                         <CircularProgress />
                       </Box>

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../compos/Navbar";
 
 // import Sidebar, { SidebarItem } from "./components/Sidebar";
-import Sidebar from "../../compos/Sidebar";
+// import Sidebar from "../../compos/Sidebar";
 import NavSidebar from "../../compos/NavSidebar";
 function index() {
   const isNonMobile = useMediaQuery("(min-width: 600px)");

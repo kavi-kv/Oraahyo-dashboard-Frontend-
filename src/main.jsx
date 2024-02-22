@@ -6,17 +6,15 @@ import QuotesContextProvider from "./Backend/Context/QuotesContext";
 import Navbar from "./compos/Navbar.jsx";
 import QuoteCard from "./compos/quoteCard.jsx";
 import AlertDialog from "./compos/alertDialog.jsx";
-
+import Signin from "./views/signin/index.jsx";
+import { AuthProvider } from "./Backend/Context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-  
-    {/* <AlertDialog /> */}
-
-    {/* <QuoteCard/> */}
-
-    <QuotesContextProvider>
-      <App />
-    </QuotesContextProvider>
+    <AuthProvider>
+      <QuotesContextProvider>
+        <App />
+      </QuotesContextProvider>
+    </AuthProvider>
   </>
 );

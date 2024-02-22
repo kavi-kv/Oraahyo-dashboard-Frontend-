@@ -2,6 +2,7 @@ import React, { useState, useContext, createContext, useEffect } from "react";
 import { api } from "../../state/api";
 import axios from "axios";
 import { FunctionsRounded } from "@mui/icons-material";
+
 export const QuotesContext = createContext();
 
 function QuotesContextProvider(props) {
