@@ -24,7 +24,8 @@ function Navbar() {
         position: "absolute",
         background: "none",
         boxShadow: "none",
-        backgroundColor: "#F1EFEF"
+        backgroundColor: "#F1EFEF",
+        
       }}
     >
         <Toolbar>

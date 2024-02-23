@@ -1,6 +1,6 @@
 import React from "react";
-import { useState,useEffect } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/Backend/Context/AuthContext";
 import { Input } from "@/components/ui/input";
 
@@ -13,49 +13,45 @@ const Signin = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-
   const handleSignIn = async (event) => {
     event.preventDefault();
-    console.log(`Email: ${email}`)
-    console.log(`Password: ${password}`)
+    console.log(`Email: ${email}`);
+    console.log(`Password: ${password}`);
     try {
-     await signIn(email, password);
+      await signIn(email, password);
       // setIsAuthenticated(true)
       setSuccess(`Successully Logged In`);
-      navigate('/dashboard')
+      navigate("/dashboard");
     } catch (error) {
       setError(error);
     }
   };
 
-  useEffect(()=> {
-    console.log(`Email: ${email} \nPassword: ${password}`)
+  useEffect(() => {
+    console.log(`Email: ${email} \nPassword: ${password}`);
     console.log(success);
     console.log(error);
     console.log(`Token: ${token}`);
-    console.log(`Is is authenticated?: ${isAuthenticated}`)
-  },[])
+    console.log(`Is is authenticated?: ${isAuthenticated}`);
+  }, []);
 
-  useEffect(()=> {
-    if(token){
-
+  useEffect(() => {
+    if (token) {
     }
-  },[token])
+  }, [token]);
 
   return (
     <section className="bg-gray-1 py-20 dark:bg-dark lg:py-[120px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
-            <div className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white px-10 py-16 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
-              <div className="mb-10 text-center md:mb-16">
-                <a href="/#" className="mx-auto inline-block max-w-[160px]">
-                  <img
-                    src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-primary.svg"
-                    alt="logo"
-                  />
-                </a>
+          <div className="w-full px-4 bg-slate-50">
+            <div className="relative mx-auto max-w-[525px]  overflow-hidden rounded-lg bg-white px-10 py-16 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]">
+              <div className="mb-5 text-center md:mb-12">
+                <h1 className="mx-auto inline-block text-30px font-semibold">
+                  ⭕raahyo
+                </h1>
               </div>
+
               <form onSubmit={handleSignIn}>
                 <Input
                   type="email"
@@ -63,18 +59,24 @@ const Signin = () => {
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="p-7 border-sky-200 rounded-lg mb-3 text-md"
                 />
+               
                 <Input
                   type="password"
                   name="password"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  className="p-7 border-sky-200 rounded-md mb-3 text-md"
                 />
                 <div className="mb-5 bg-blue-600 text-white font-semibold text-base p-4">
-                  <button className="rounded-md" type="submit">Login</button>
+                  <button className="rounded-md" type="submit">
+                    Login
+                  </button>
                 </div>
               </form>
+
               <p className="mb-6 text-base text-secondary-color dark:text-dark-7">
                 Connect With
               </p>

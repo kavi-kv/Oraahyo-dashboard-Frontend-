@@ -1,8 +1,8 @@
 import React from 'react'
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Layout from '@/views/layout/index'
-import Signin from '@/views/signin';
-import SignUp from '@/views/signup';
+import Signin from '@/pages/signin';
+import SignUp from '@/pages/signup';
 import { useAuth } from '@/Backend/Context/AuthContext';
 import Dashboard from '@/views/dashboard';
 import Quotes from '@/views/quotes';
