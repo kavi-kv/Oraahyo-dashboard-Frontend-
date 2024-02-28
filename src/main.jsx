@@ -8,12 +8,15 @@ import QuoteCard from "./compos/quoteCard.jsx";
 import AlertDialog from "./compos/alertDialog.jsx";
 import Signin from "./pages/signin/index.jsx";
 import { AuthProvider } from "./Backend/Context/AuthContext.jsx";
+import NoticeContextProvider from "./Backend/Context/NoticeContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <AuthProvider>
       <QuotesContextProvider>
-        <App />
+        <NoticeContextProvider>
+          <App />
+        </NoticeContextProvider>
       </QuotesContextProvider>
     </AuthProvider>
   </>

@@ -17,8 +17,9 @@ const bull = (
 function Dashboard() {
   console.log("You are in dashboard");
   return (
-    <div className="mt-28 ml-72 mr-36 p-10 h-screen mb-5">
-      <Card sx={{ width: 250, height: 180, borderRadius: '20px'}}>
+    <>
+    <div className="mt-28 ml-72 mr-36 p-10 h-screen mb-5 flex gap-5 justify-center">
+      <Card sx={{ width: 180, height: 150, borderRadius: '20px'}}>
         <CardContent sx={{ mt: '0.7rem' }}>
           <Typography
             sx={{
@@ -26,29 +27,121 @@ function Dashboard() {
               textAlign: "center",
               justifyContent: "center",
               fontSize: "1rem",
-              fontFamily: "sans-serif",
-              mb: '12px'
+              fontFamily: "monospace",
+              mb: '12px',
             }}
           >
-            Total Users
+            Total App Users
           </Typography>
-          <Typography
+          <Typography 
             sx={{
               display: "flex",
               textAlign: "center",
               justifyContent: "center",
               fontSize: "1.6rem",
-              fontFamily: "sans-serif",
+              fontFamily: "cursive",
             }}
           >
             12,210
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="medium">Learn More</Button>
+          {/* <Button size="medium">Learn More</Button> */}
+        </CardActions>
+      </Card>
+      <Card sx={{ width: 180, height: 150, borderRadius: '20px'}}>
+        <CardContent sx={{ mt: '0.7rem' }}>
+          <Typography
+            sx={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: "1rem",
+              fontFamily: "monospace",
+              mb: '12px',
+            }}
+          >
+            Daily Logins
+          </Typography>
+          <Typography 
+            sx={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: "1.6rem",
+              fontFamily: "cursive",
+            }}
+          >
+            760
+          </Typography>
+        </CardContent>
+        <CardActions>
+          {/* <Button size="medium">Learn More</Button> */}
+        </CardActions>
+      </Card>
+      <Card sx={{ width: 180, height: 150, borderRadius: '20px'}}>
+        <CardContent sx={{ mt: '0.7rem' }}>
+          <Typography
+            sx={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: "1rem",
+              fontFamily: "monospace",
+              mb: '12px',
+            }}
+          >
+            Monthly Users
+          </Typography>
+          <Typography 
+            sx={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: "1.6rem",
+              fontFamily: "cursive",
+            }}
+          >
+            5400
+          </Typography>
+        </CardContent>
+        <CardActions>
+          {/* <Button size="medium">Learn More</Button> */}
+        </CardActions>
+      </Card>
+      <Card sx={{ width: 180, height: 150, borderRadius: '20px'}}>
+        <CardContent sx={{ mt: '0.7rem' }}>
+          <Typography
+            sx={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: "1rem",
+              fontFamily: "monospace",
+              mb: '12px',
+            }}
+          >
+            Active Users
+          </Typography>
+          <Typography 
+            sx={{
+              display: "flex",
+              textAlign: "center",
+              justifyContent: "center",
+              fontSize: "1.6rem",
+              fontFamily: "cursive",
+
+            }}
+          >
+            1245
+          </Typography>
+        </CardContent>
+        <CardActions>
+          {/* <Button size="medium">Learn More</Button> */}
         </CardActions>
       </Card>
     </div>
+    </>
   );
 }
 

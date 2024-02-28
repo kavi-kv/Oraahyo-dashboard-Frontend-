@@ -19,6 +19,7 @@ function index() {
       />
 
       <Box flexGrow={1}>
+        
         <Navbar />
         <Outlet />
       </Box>

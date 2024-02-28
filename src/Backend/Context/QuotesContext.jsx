@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext, useEffect } from "react";
-import { api } from "../../state/api";
+// import { api } from "../../state/api";
 import axios from "axios";
 import { FunctionsRounded } from "@mui/icons-material";
 
@@ -64,7 +64,7 @@ function QuotesContextProvider(props) {
   async function updateQuoteData(_id, quoteData) {
     try {
       const response = await axios.put(
-        `http://localhost:5005/xikmado/updateQuotes/${_id}`,
+        `http://localhost:5005/ xikmado/updateQuotes/${_id}`,
         quoteData
       );
       console.log(`Quote with ID: ${_id} is succesfully updated`);

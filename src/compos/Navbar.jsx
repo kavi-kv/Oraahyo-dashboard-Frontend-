@@ -21,11 +21,11 @@ function Navbar() {
   return (
     <AppBar
     sx={{
-        position: "absolute",
+        position: "relative",
         background: "none",
         boxShadow: "none",
         backgroundColor: "#F1EFEF",
-        
+      
       }}
     >
         <Toolbar>

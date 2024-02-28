@@ -15,6 +15,8 @@ import SignUp from "./pages/signup";
 import { useAuth } from "./Backend/Context/AuthContext";
 import { AuthProvider } from "./Backend/Context/AuthContext";
 import ProtectedRoutes from "./routing/protected";
+import Notice from "./views/notice";
+import NoticeContextProvider from "./Backend/Context/NoticeContext";
 function App() {
   const { isAuthenticated, token } = useAuth();
 
@@ -40,6 +42,16 @@ function App() {
                 <ProtectedRoutes>
                   <Quotes />
                 </ProtectedRoutes>
+              }
+            />
+            <Route
+              path="/notices"
+              element={
+                // <NoticeContextProvider>
+                  <ProtectedRoutes>
+                    <Notice />
+                  </ProtectedRoutes>
+                // </NoticeContextProvider>
               }
             />
           </Route>

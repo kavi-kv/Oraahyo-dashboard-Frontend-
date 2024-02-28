@@ -54,10 +54,10 @@ const navItems = [
       text: "Quotes",
       icon: <Groups2Outlined/>,
     },
-    // {
-    //   text: "Logout",
-    //   icon: <LogoutOutlinedIcon/>,
-    // },
+    {
+      text: "Notices",
+      icon: <LogoutOutlinedIcon/>,
+    },
 
     
   ];
@@ -93,6 +93,7 @@ function NavSidebar({
               boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
+              
             },
           }}
         >
