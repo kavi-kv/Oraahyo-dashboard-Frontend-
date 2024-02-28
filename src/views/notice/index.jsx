@@ -18,17 +18,38 @@ import {
 import { Button } from "@/components/ui/button";
 import { NoticeContext } from "@/Backend/Context/NoticeContext";
 import Modal from "@/compos/modal";
+import NoticeCard from "@/compos/NoticeCard";
 import { Trash } from "react-feather";
 import { PlusCircle } from "react-feather";
+import { Oval } from "react-loader-spinner";
+
+<Oval
+  visible={true}
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="oval-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+/>;
 
 function Notice() {
-  const { fetchActive, activeNotices, notices, addNotice, loading } =
-    useContext(NoticeContext);
+  const {
+    fetchActive,
+    activeNotices,
+    notices,
+    addNotice,
+    deleteNotice,
+    loading,
+  } = useContext(NoticeContext);
   const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [type, setType] = useState("");
   const [active, setActive] = useState(false);
+  const [uiLoading, setUiLoading] = useState(false);
 
   const newNotice = {
     title: title,
@@ -37,16 +58,24 @@ function Notice() {
     isActive: active,
   };
 
-  const saveNotices = () => {
+  const saveNotices = async () => {
     if (title != "" || type != "" || body != "") {
-      addNotice(newNotice);
+      await addNotice(newNotice);
       console.log("Successfully saved");
-      clearFields()
+      clearFields();
       setOpen(false);
-      fetchActive()
+      await fetchActive();
     } else {
       console.log("Fill all the required spaces");
     }
+  };
+
+  const deleteNot = async (id) => {
+    // setUiLoading(true);
+    await deleteNotice(id);
+    setConfirmDelete(false);
+    console.log("Successfully deleted Notice");
+    await fetchActive();
   };
 
   function handleTest() {
@@ -55,7 +84,7 @@ function Notice() {
     );
   }
 
-  function clearFields(){
+  function clearFields() {
     setBody("");
     setTitle("");
     setType("");
@@ -64,7 +93,6 @@ function Notice() {
   useEffect(() => {
     fetchActive();
     console.log(activeNotices);
-   
   }, []);
   return (
     <div className="mt-28 ml-72 mr-36 p-10 h-screen mb-5 gap-5 ">
@@ -132,7 +160,7 @@ function Notice() {
             </div>
             <div className="flex justify-around mt-3 gap-3  text-cyan-50 font-semibold  ">
               <button
-                onClick={()=> saveNotices()}
+                onClick={() => saveNotices()}
                 className="btn btn-danger w-1/4 rounded p-3 bg-violet-700"
               >
                 Save
@@ -141,13 +169,14 @@ function Notice() {
           </div>
         </Modal>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-4 space-y-3 space-x-3 w-full h-full p-5">
         {loading ? (
-          <h3>Loading...</h3>
+          <div className="flex justify-center items-center absolute inset-0 ">
+            {<Oval />}
+          </div>
         ) : (
           activeNotices.map((notice, index) => (
-            
-            <div key={index} className="flex  ">
+            <div key={index} className="flex  h-72 w-56 overflow-clip">
               <Card className="h-72 w-60 text-center flex flex-col ">
                 <CardHeader className="pb-3">
                   <CardTitle>{notice.title}</CardTitle>
@@ -157,13 +186,41 @@ function Notice() {
                   <p>{notice.body}</p>
                 </CardContent>
                 <CardFooter className="mt-5">
-                  <div className="flex justify-between w-screen ">
-                    <Button className="p-5 bg-blue-700 text-white rounded">
+                  <div className="flex justify-between w-screen h-10 bg-transparent">
+                    <button
+                      onClick={() => setOpenEdit(true)}
+                      className="p-2 bg-blue-700 w-1/3 text-white rounded"
+                    >
                       Edit
-                    </Button>
-                    <Button className="p-5 bg-red-500 text-white rounded">
+                    </button>
+                    <button
+                      onClick={() => setConfirmDelete(true)}
+                      className="p-2 bg-red-500 text-white w-1/3 rounded"
+                    >
                       Delete
-                    </Button>
+                    </button>
+                    <Modal
+                      open={confirmDelete}
+                      onClose={() => setConfirmDelete(false)}
+                    >
+                      <div className="text-center w-60 justify-center space-y-3 ">
+                        <div className="text-center space-y-3">
+                          <h1 className="text-lg">Delete</h1>
+                          <Trash className="mx-auto text-red-500" size={56} />
+                        </div>
+                        <div>
+                          <p>Are you sure you want to delete</p>
+                        </div>
+                        <div className="flex items-center justify-center">
+                          <button
+                            onClick={() => deleteNot(notice._id)}
+                            className="p-2 w-1/2 bg-violet-700 text-white rounded"
+                          >
+                            Confirm
+                          </button>
+                        </div>
+                      </div>
+                    </Modal>
                   </div>
                 </CardFooter>
               </Card>
